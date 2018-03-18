@@ -106,7 +106,7 @@ void vector_t::pop_back()
     if (size_)
     {        
         --size_;
-        if (size <= (capacity/4))
+        if (size_ <= (capacity_/4))
         {
             capacity_ = capacity_ / 2;
             int *temp = new int[capacity_];
