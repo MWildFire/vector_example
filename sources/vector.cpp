@@ -11,13 +11,13 @@ vector_t::vector_t() : size_{ 0 }, capacity_{ 0 }, elements_{ nullptr }
 
 vector_t::vector_t(vector_t const & other)
 {
-    capacity_ = other.capacity_;
-    size_ = other.size_;
-    elements_ = new int[capacity_];
-    for (std::size_t i = 0; i < size_; i++)
+    elements_ = new int[other.capacity_];
+    for (std::size_t i = 0; i < other.size_; i++)
     {
         elements_[i] = other.elements_[i];
     }
+    capacity_ = other.capacity_;
+    size_ = other.size_;
 }
 
 
