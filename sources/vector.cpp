@@ -23,7 +23,10 @@ vector_t::vector_t(vector_t const & other)
 
 vector_t::~vector_t()
 {
-    delete []elements_;
+    if (elements != nullptr)
+    {
+    	delete []elements_;
+    }
 }
 
 std::size_t vector_t::size() const
