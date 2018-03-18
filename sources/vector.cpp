@@ -23,24 +23,6 @@ vector_t::vector_t(vector_t const & other)
 }
 
 
-vector_t::~vector_t()
-{
-    if (elements_ != nullptr)
-    {
-    	delete[] elements_;
-    }
-}
-
-std::size_t vector_t::size() const
-{
-    return size_;
-}
-
-std::size_t vector_t::capacity() const
-{
-    return capacity_;
-}
-
 
 vector_t & vector_t::operator =(vector_t const & other) 
 {
@@ -76,6 +58,25 @@ bool vector_t::operator ==(vector_t const & other) const
 		}
 	}
 	return flag;
+}
+
+vector_t::~vector_t()
+{
+    if (elements_ != nullptr)
+    {
+    	delete[] elements_;
+    }
+}
+
+
+std::size_t vector_t::size() const
+{
+    return size_;
+}
+
+std::size_t vector_t::capacity() const
+{
+    return capacity_;
 }
 
 void vector_t::push_back(int value) 
