@@ -11,13 +11,13 @@ vector_t::vector_t() : size_{ 0 }, capacity_{ 0 }, elements_{ nullptr }
 
 vector_t::vector_t(vector_t const & other)
 {
-    elements_ = new int[other.capacity_()];
-    for (std::size_t i = 0; i < other.size_(); i++)
+    elements_ = new int[other.capacity()];
+    for (std::size_t i = 0; i < other.size(); i++)
     {
         elements_[i] = other.elements_[i];
     }
-    capacity_ = other.capacity_();
-    size_ = other.size_();
+    capacity_ = other.capacity();
+    size_ = other.size();
 }
 
 
@@ -44,10 +44,10 @@ vector_t & vector_t::operator =(vector_t const & other) {
 	
 	if (this != &other) 
 	{
-		capacity_ = other.capacity_;
-		size_ = other.size_;
-		elements_ = new int[other.capacity_];
-		for (std::size_t i = 0; i < other.capacity_; i++) 
+		capacity_ = other.capacity();
+		size_ = other.size();
+		elements_ = new int[other.capacity()];
+		for (std::size_t i = 0; i < other.capacity(); i++) 
 		{
 			elements_[i] = other.elements_[i];
 		}
@@ -58,7 +58,7 @@ vector_t & vector_t::operator =(vector_t const & other) {
 
 bool vector_t::operator ==(vector_t const & other) const 
 {
-	bool flag = size_ == other.size_;
+	bool flag = size_ == other.size();
 	if (flag) 
         {
 		for (std::size_t i = 0; i < size_; i++) 
