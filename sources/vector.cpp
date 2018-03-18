@@ -1,3 +1,12 @@
+//
+//  vector.cpp
+//  vector
+//
+//  Created by Сурков Дмитрий Валерьевич on 16.03.2018.
+//  Copyright © 2018 Сурков Дмитрий Валерьевич. All rights reserved.
+//
+
+
 #include "vector.hpp"
 #include <algorithm>
 #include <cassert>
@@ -5,8 +14,7 @@
 
 
 vector_t::vector_t() : size_{ 0 }, capacity_{ 0 }, elements_{ nullptr }
-{
-}
+{}
 
 vector_t::vector_t(vector_t const & other)
 {
@@ -23,21 +31,21 @@ vector_t::vector_t(vector_t const & other)
 
 vector_t & vector_t::operator =(vector_t const & other)
 {
-	   if(this != &other)
-       {
-           if(elements_ != nullptr)
-           {
-               delete[] elements_;
-           }
-           capacity_ = other.capacity_;
-           size_ = other.size_;
-           elements_ = new int[other.capacity_];
-           for (std::size_t i = 0; i < other.capacity_; i++)
-           {
-               elements_[i] = other.elements_[i];
-           }
-       }
-	   return *this;
+    if(this != &other)
+    {
+        if(elements_ != nullptr)
+        {
+            delete[] elements_;
+        }
+        capacity_ = other.capacity_;
+        size_ = other.size_;
+        elements_ = new int[other.capacity_];
+        for (std::size_t i = 0; i < other.capacity_; i++)
+        {
+            elements_[i] = other.elements_[i];
+        }
+    }
+    return *this;
 }
 
 bool vector_t::operator ==(vector_t const & other) const
@@ -97,14 +105,14 @@ void vector_t::push_back(int value)
             capacity_ = 1;
             elements_ = new int[capacity_];
         }
-        elements_[size_++] = value;
+    elements_[size_++] = value;
 }
 
 
 void vector_t::pop_back()
 {
     if (size_)
-    {        
+    {
         --size_;
         if (size_ <= (capacity_/4))
         {
@@ -117,10 +125,11 @@ void vector_t::pop_back()
             delete[] elements_;
             elements_ = temp;
         }
-    } else
-      {
-      	std::cout << "Vector is empty! Error!\n";
-      }
+    }
+    else
+        {
+            std::cout << "Vector is empty! Error!\n";
+        }
 }
 
 int & vector_t::operator [](std::size_t index)
