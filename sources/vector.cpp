@@ -23,7 +23,7 @@ vector_t::vector_t(vector_t const & other)
 
 vector_t::~vector_t()
 {
-    if (elements != nullptr)
+    if (elements_ != nullptr)
     {
     	delete []elements_;
     }
