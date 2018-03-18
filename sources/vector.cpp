@@ -11,13 +11,13 @@ vector_t::vector_t() : size_{ 0 }, capacity_{ 0 }, elements_{ nullptr }
 
 vector_t::vector_t(vector_t const & other)
 {
-    elements_ = new int[other.capacity_];
-    for (std::size_t i = 0; i < other.size_; i++)
+    elements_ = new int[other.capacity_()];
+    for (std::size_t i = 0; i < other.size_(); i++)
     {
         elements_[i] = other.elements_[i];
     }
-    capacity_ = other.capacity_;
-    size_ = other.size_;
+    capacity_ = other.capacity_();
+    size_ = other.size_();
 }
 
 
@@ -25,7 +25,7 @@ vector_t::~vector_t()
 {
     if (elements_ != nullptr)
     {
-    	delete []elements_;
+    	delete[] elements_;
     }
 }
 
@@ -44,10 +44,10 @@ vector_t & vector_t::operator =(vector_t const & other) {
 	
 	if (this != &other) 
 	{
-		capacity_ = other.capacity_;
-		size_ = other.size_;
-		elements_ = new int[other.capacity_];
-		for (std::size_t i = 0; i < other.capacity_; i++) 
+		capacity_ = other.capacity_();
+		size_ = other.size_();
+		elements_ = new int[other.capacity_()];
+		for (std::size_t i = 0; i < other.capacity_(); i++) 
 		{
 			elements_[i] = other.elements_[i];
 		}
@@ -58,7 +58,7 @@ vector_t & vector_t::operator =(vector_t const & other) {
 
 bool vector_t::operator ==(vector_t const & other) const 
 {
-	bool flag = size_ == other.size_;
+	bool flag = size_ == other.size_();
 	if (flag) 
         {
 		for (std::size_t i = 0; i < size_; i++) 
@@ -75,15 +75,14 @@ bool vector_t::operator ==(vector_t const & other) const
 
 void vector_t::push_back(int value) 
 {
-	
 	if (capacity_) 
-    {
-		if (size_ == capacity_) 
         {
+		if (size_ == capacity_) 
+                {
 			capacity_ *= 2;
 			int * temp = new int[capacity_];
 			for (std::size_t i = 0; i < size_; ++i) 
-            {
+                        {
 				temp[i] = elements_[i];
 			}
 			
@@ -91,7 +90,7 @@ void vector_t::push_back(int value)
 			elements_ = temp;
 		}
 	} else 
-    {
+        {
 		capacity_ = 1;
 		int * elements_ = new int[capacity_];
 	}
