@@ -4,11 +4,8 @@
 
 
 
-vector_t::vector_t()
+vector_t::vector_t() : size_{ 0 }, capacity_{ 0 }, ptr_{ nullptr }
 {
-    size_ = 0;
-    capacity_ = 0;
-    elements_ = nullptr;
 }
 
 vector_t::vector_t(vector_t const & other)
@@ -107,7 +104,8 @@ void vector_t::push_back(int value)
 void vector_t::pop_back()
 {
     if (size_)
-    {
+    {        
+        --size_;
         if (capacity_ == size_ / 2)
         {
             capacity_ = capacity_ / 2;
@@ -119,12 +117,10 @@ void vector_t::pop_back()
             delete[] elements_;
             elements_ = temp;
         }
-        
-        --size_;
     } else
-    {
-        std::cout << "Vector is empty! Error!\n";
-    }
+      {
+      	std::cout << "Vector is empty! Error!\n";
+      }
 }
 
 int & vector_t::operator [](std::size_t index)
