@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <cassert>
 
-#include "vector.hpp"
+
 
 vector_t::vector_t() : size_{ 0 }, capacity_{ 0 }, elements_{ nullptr }
 {
