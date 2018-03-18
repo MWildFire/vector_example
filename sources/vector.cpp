@@ -4,7 +4,7 @@
 
 
 
-vector_t::vector_t() : size_{ 0 }, capacity_{ 0 }, ptr_{ nullptr }
+vector_t::vector_t() : size_{ 0 }, capacity_{ 0 }, elements_{ nullptr }
 {
 }
 
