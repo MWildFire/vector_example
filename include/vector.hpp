@@ -33,12 +33,14 @@ public:
     void pop_back();
     T at(std::size_t index);
     T & at(std::size_t index) const;
-    int & operator [](std::size_t index);
-    int operator [](std::size_t index) const;
+    T & operator [](std::size_t index);
+    T operator [](std::size_t index) const;
     
     bool operator ==(vector_t const & other) const;
 };
-    bool operator !=(vector_t const & lhs, vector_t const & rhs);
+
+template <typename T>
+bool operator !=(vector_t<T> const & lhs, vector_t<T> const & rhs);
 
 template <typename T>
 vector_t<T>::vector_t() : size_{ 0 }, capacity_{ 0 }, elements_{ nullptr }
@@ -56,24 +58,26 @@ vector_t<T>::vector_t(vector_t const & other)
     size_ = other.size_;
 }
 
+template <typename T>
 T vector<T>::at(std::size_t index)
 {
     try {
         return elements_ [index => size_];
     }
     catch (...) {
-        cout << "Index is out of current vector" << endl;
+        cout << "Index is out of current vector" << std::endl;
     }
     return elements_[index];
 }
 
+template <typename T>
 T & vector<T>::at(std::size_t index)
 {
     try {
         return elements_ [index => size_];
     }
     catch (...) {
-        cout << "Index is out of current vector" << endl;
+        cout << "Index is out of current vector" << std::endl;
     }
     return elements_[index];
 }
@@ -187,22 +191,23 @@ void vector_t<T>::pop_back()
 }
 
 template <typename T>
-int & vector_t<T>::operator [](std::size_t index)
+T & vector_t<T>::operator [](std::size_t index)
 {
     return elements_[index];
 }
 
 template <typename T>
-int vector_t<T>::operator [](std::size_t index) const
+T vector_t<T>::operator [](std::size_t index) const
 {
     return elements_[index];
 }
 
 template <typename T>
-bool operator !=(vector_t const & lhs, vector_t const & rhs)
+bool operator !=(vector_t<T> const & lhs, vector_t<T> const & rhs)
 {
     return  !(lhs == rhs);
 }
+
 
 
 #endif /* vector_hpp */
