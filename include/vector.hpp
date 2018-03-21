@@ -61,11 +61,13 @@ vector_t<T>::vector_t(vector_t const & other)
 template <typename T>
 T vector_t<T>::at(std::size_t index)
 {
-    try {
-        return elements_ [index => size_];
-    }
-    catch (...) {
-        cout << "Index is out of current vector" << std::endl;
+    if (index => size_){
+        try {
+            return elements_ [index];
+        }
+        catch (...) {
+            std::cout << "Index is out of current vector" << std::endl;
+        }
     }
     return elements_[index];
 }
@@ -73,11 +75,13 @@ T vector_t<T>::at(std::size_t index)
 template <typename T>
 T & vector_t<T>::at(std::size_t index)
 {
-    try {
-        return elements_ [index => size_];
-    }
-    catch (...) {
-        cout << "Index is out of current vector" << std::endl;
+    if (index => size_){
+        try {
+            return elements_ [index];
+        }
+        catch (...) {
+            std::cout << "Index is out of current vector" << std::endl;
+        }
     }
     return elements_[index];
 }
@@ -161,7 +165,7 @@ void vector_t<T>::push_back(int value)
     else
     {
         capacity_ = 1;
-        elements_ = T[capacity_];
+        elements_ = new T[capacity_];
     }
     elements_[size_++] = value;
 }
