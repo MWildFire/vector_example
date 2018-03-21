@@ -163,6 +163,6 @@ TEST_CASE("testing exceptions")
     
     int a;
     
-    REQUIRE ( a == vector.at(2));
-    REQUIRE ( a == vector.at(50));
+    REQUIRE_NOTHROW ( a = vector.at(2));
+    REQUIRE_THROW ( a = vector.at(50));
 }
