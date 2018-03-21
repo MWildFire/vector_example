@@ -61,7 +61,7 @@ vector_t<T>::vector_t(vector_t const & other)
 template <typename T>
 T vector_t<T>::at(std::size_t index)
 {
-    if (index => size_){
+    if (index >= size_){
         try {
             return elements_ [index];
         }
@@ -75,7 +75,7 @@ T vector_t<T>::at(std::size_t index)
 template <typename T>
 T & vector_t<T>::at(std::size_t index) const
 {
-    if (index => size_){
+    if (index >= size_){
         try {
             return elements_ [index];
         }
