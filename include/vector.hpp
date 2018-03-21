@@ -59,7 +59,7 @@ vector_t<T>::vector_t(vector_t const & other)
 }
 
 template <typename T>
-T vector<T>::at(std::size_t index)
+T vector_t<T>::at(std::size_t index)
 {
     try {
         return elements_ [index => size_];
@@ -71,7 +71,7 @@ T vector<T>::at(std::size_t index)
 }
 
 template <typename T>
-T & vector<T>::at(std::size_t index)
+T & vector_t<T>::at(std::size_t index)
 {
     try {
         return elements_ [index => size_];
