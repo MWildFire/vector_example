@@ -62,12 +62,7 @@ template <typename T>
 T vector_t<T>::at(std::size_t index)
 {
     if (index >= size_){
-        try {
-            return elements_ [index];
-        }
-        catch (...) {
-            std::cout << "Index is out of current vector" << std::endl;
-        }
+        throw "Index is bigger, than size!";
     }
     return elements_[index];
 }
@@ -76,12 +71,7 @@ template <typename T>
 T & vector_t<T>::at(std::size_t index) const
 {
     if (index >= size_){
-        try {
-            return elements_ [index];
-        }
-        catch (...) {
-            std::cout << "Index is out of current vector" << std::endl;
-        }
+        throw "Index is bigger, than size!";
     }
     return elements_[index];
 }
