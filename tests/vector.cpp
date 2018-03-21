@@ -163,6 +163,6 @@ TEST_CASE("testing exceptions")
     
     int a;
     
-    REQUIRE ( a == vector.at(1));
+    REQUIRE ( a == vector.at(2));
     REQUIRE ( a == vector.at(50));
 }
