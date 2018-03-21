@@ -15,7 +15,7 @@ TEST_CASE("copying vector")
 	vector_t<int> vector;
 	vector.push_back(1);
 
-	vector_t copy(vector);
+	vector_t<int> copy(vector);
 	REQUIRE( copy == vector );
 }
 
@@ -53,7 +53,7 @@ TEST_CASE("indexing vector")
 
 	REQUIRE( vector[0] == 1 );
 
-	vector_t const copy(vector);
+	vector_t<int> const copy(vector);
 	REQUIRE( copy[0] == 1 );
 }
 
@@ -132,7 +132,7 @@ TEST_CASE("popping double vector")
 	vector.pop_back();
 	REQUIRE( vector.size() == 5 );
 	REQUIRE( vector.capacity() == 8 );
-	
+
 	vector.pop_back();
 	REQUIRE( vector.size() == 4 );
 	REQUIRE( vector.capacity() == 8 );
@@ -159,10 +159,10 @@ TEST_CASE("testing exceptions")
     vector_t<int> vector;
     
     vector.push_back(1);
-    vector.push_back(2);
+	vector.push_back(2);
     
     int a;
     
-    REQUIRE ( a = vector.at(1));
-    REQUIRE ( a = vector.at(50));
+    REQUIRE ( a == vector.at(1));
+    REQUIRE ( a == vector.at(50));
 }
