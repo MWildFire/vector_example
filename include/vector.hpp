@@ -73,7 +73,7 @@ T vector_t<T>::at(std::size_t index)
 }
 
 template <typename T>
-T & vector_t<T>::at(std::size_t index)
+T & vector_t<T>::at(std::size_t index) const
 {
     if (index => size_){
         try {
