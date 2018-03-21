@@ -204,9 +204,5 @@ bool operator !=(vector_t const & lhs, vector_t const & rhs)
     return  !(lhs == rhs);
 }
 
-void at(std::size_t index)
-{
-    std::out_of_range if !(index < size);
-}
 
 #endif /* vector_hpp */
