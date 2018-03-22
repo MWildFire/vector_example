@@ -62,7 +62,7 @@ template <typename T>
 T vector_t<T>::at(std::size_t index)
 {
     if (index >= size_){
-        throw "Index is bigger, than size!";
+        throw "going out of array";
     }
     return elements_[index];
 }
@@ -71,7 +71,7 @@ template <typename T>
 T & vector_t<T>::at(std::size_t index) const
 {
     if (index >= size_){
-        throw "Index is bigger, than size!";
+        throw "going out of array";
     }
     return elements_[index];
 }
