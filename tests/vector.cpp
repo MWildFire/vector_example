@@ -162,7 +162,7 @@ TEST_CASE("testing exceptions")
     vector.push_back(2);
     vector.push_back(3);
     
-    int a;
+    unsigned int a;
     
     REQUIRE_NOTHROW ( a = vector.at(1));
     REQUIRE_NOTHROW ( a = vector.at(2));
