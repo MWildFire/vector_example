@@ -59,24 +59,6 @@ vector_t<T>::vector_t(vector_t const & other)
 }
 
 template <typename T>
-T vector_t<T>::at(std::size_t index)
-{
-    if (index >= size_){
-        throw "going out of array";
-    }
-    return elements_[index];
-}
-
-template <typename T>
-T & vector_t<T>::at(std::size_t index) const
-{
-    if (index >= size_){
-        throw "going out of array";
-    }
-    return elements_[index];
-}
-
-template <typename T>
 vector_t<T> & vector_t<T>::operator =(vector_t const & other)
 {
     if(this != &other)
@@ -182,6 +164,24 @@ void vector_t<T>::pop_back()
     {
         std::cout << "Vector is empty! Error!\n";
     }
+}
+
+template <typename T>
+T vector_t<T>::at(std::size_t index)
+{
+    if (index >= size_){
+        throw "going out of array";
+    }
+    return elements_[index];
+}
+
+template <typename T>
+T & vector_t<T>::at(std::size_t index) const
+{
+    if (index >= size_){
+        throw "going out of array";
+    }
+    return elements_[index];
 }
 
 template <typename T>
